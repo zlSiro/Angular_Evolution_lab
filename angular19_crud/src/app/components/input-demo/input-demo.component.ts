@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-input-demo',
@@ -8,5 +9,11 @@ import { Component, input } from '@angular/core';
 })
 export class InputDemoComponent {
 
-  name = input.required<string>();
+  // Angular 18:
+  // @Input() product!: Product;
+
+  // Angular 19:
+  // Signal Input estable. El componente requiere obligatoriamente
+  // que el componente padre le entregue un Product.
+  product = input.required<Product>();
 }
