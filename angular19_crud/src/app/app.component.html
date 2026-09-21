@@ -16,7 +16,7 @@
     (productDeleted)="onProductDeleted($event)"
   /> -->
 
-  <div class="rounded-lg bg-slate-800 p-6 text-white">
+  <!-- <div class="rounded-lg bg-slate-800 p-6 text-white">
 
     <h2 class="mb-4 text-xl font-bold">
       Componente Padre
@@ -28,12 +28,15 @@
         {{ name }}
       </span>
     </p>
-
-  </div>
-
     <app-model-demo
       [(value)]="name"
     />
+
+  </div> -->
+
+  <app-product-list
+   [products]="products"
+  />
 
 </main>
 
