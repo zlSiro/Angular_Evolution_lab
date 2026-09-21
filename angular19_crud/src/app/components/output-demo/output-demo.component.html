@@ -1,1 +1,19 @@
-<p>output-demo works!</p>
+<div class="rounded-lg bg-slate-800 p-6 text-white shadow-lg">
+
+  <h2 class="mb-4 text-xl font-bold">
+    Output Demo
+  </h2>
+
+  <p class="mb-4 text-slate-300">
+    Este componente puede notificar al padre cuando se elimina un producto.
+  </p>
+
+  <button
+    type="button"
+    (click)="deleteProduct()"
+    class="rounded-lg bg-red-600 px-4 py-2 font-semibold hover:bg-red-500"
+  >
+    Eliminar producto
+  </button>
+
+</div>
