@@ -4,17 +4,36 @@
     Angular 19 CRUD
   </h1>
 
-  <app-input-demo
+  <!-- <app-input-demo
     [product]="{
       id: 1,
       name: 'Teclado mecánico',
       price: 89990
     }"
-  />
+  /> -->
 
-  <app-output-demo
+  <!-- <app-output-demo
     (productDeleted)="onProductDeleted($event)"
-  />
+  /> -->
+
+  <div class="rounded-lg bg-slate-800 p-6 text-white">
+
+    <h2 class="mb-4 text-xl font-bold">
+      Componente Padre
+    </h2>
+
+    <p>
+      Nombre:
+      <span class="font-bold">
+        {{ name }}
+      </span>
+    </p>
+
+  </div>
+
+    <app-model-demo
+      [(value)]="name"
+    />
 
 </main>
 

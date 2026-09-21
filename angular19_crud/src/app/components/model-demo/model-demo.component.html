@@ -1,1 +1,34 @@
-<p>model-demo works!</p>
+<div class="rounded-lg bg-slate-800 p-6 text-white shadow-lg">
+
+  <h2 class="mb-4 text-xl font-bold">
+    Model Demo
+  </h2>
+
+  <p class="mb-4 text-slate-300">
+    Valor actual:
+    <span class="font-bold">
+      {{ value() }}
+    </span>
+  </p>
+
+  <div class="flex gap-3">
+
+    <button
+      type="button"
+      (click)="changeValue()"
+      class="rounded-lg bg-blue-600 px-4 py-2 font-semibold hover:bg-blue-500"
+    >
+      Cambiar valor
+    </button>
+
+    <button
+      type="button"
+      (click)="appendValue()"
+      class="rounded-lg bg-green-600 px-4 py-2 font-semibold hover:bg-green-500"
+    >
+      Agregar !
+    </button>
+
+  </div>
+
+</div>
