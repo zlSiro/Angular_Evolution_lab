@@ -1,0 +1,96 @@
+<div class="mt-8 w-full max-w-4xl mx-auto">
+
+  <h2 class="mb-4 text-2xl font-semibold text-white">
+    Productos
+  </h2>
+
+  <div class="mb-6">
+    <label
+      for="search"
+      class="mb-2 block text-sm font-medium text-slate-300"
+    >
+      Buscar producto
+    </label>
+
+    <!-- depende del FormsModule importado en el componente.ts -->
+    <input
+      id="search"
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Escribe el nombre del producto..."
+      class="block w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+    />
+  </div>
+
+  <div class="overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+
+    <table class="w-full text-left text-sm text-slate-300">
+
+      <thead class="bg-slate-800 text-xs uppercase text-slate-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">ID</th>
+          <th scope="col" class="px-6 py-3">Producto</th>
+          <th scope="col" class="px-6 py-3">Descripción</th>
+          <th scope="col" class="px-6 py-3">Precio</th>
+          <th scope="col" class="px-6 py-3">Stock</th>
+          <th scope="col" class="px-6 py-3">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="let product of searchProducts()"
+          class="border-b border-slate-700"
+        >
+          <td class="px-6 py-4">
+            {{ product.id }}
+          </td>
+
+          <td class="px-6 py-4 font-medium text-white">
+            {{ product.name }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ product.description }}
+          </td>
+
+          <td class="px-6 py-4">
+            ${{ product.price }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ product.stock }}
+          </td>
+
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+
+              <button
+                type="button"
+                class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                (click)="editProduct(product)"
+              >
+                Editar
+              </button>
+
+              <button
+                type="button"
+                class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+                (click)="deleteProduct(product.id)"
+              >
+                Eliminar
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
