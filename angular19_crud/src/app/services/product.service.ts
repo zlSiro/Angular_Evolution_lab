@@ -10,17 +10,23 @@ export class ProductService {
     {
       id: 1,
       name: 'Teclado mecánico',
-      price: 89990
+      description: 'Teclado mecánico RGB para gaming',
+      price: 89990,
+      stock: 15
     },
     {
       id: 2,
       name: 'Mouse gamer',
-      price: 49990
+      description: 'Mouse óptico de alta precisión',
+      price: 49990,
+      stock: 25
     },
     {
       id: 3,
       name: 'Monitor 27"',
-      price: 199990
+      description: 'Monitor IPS de 27 pulgadas',
+      price: 199990,
+      stock: 8
     }
   ];
 

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { InputDemoComponent } from './components/input-demo/input-demo.component';
-import { OutputDemoComponent } from './components/output-demo/output-demo.component';
-import { ModelDemoComponent } from './components/model-demo/model-demo.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { Product } from './models/product';
 import { ProductService } from './services/product.service';
 
 @Component({
@@ -22,9 +20,16 @@ export class AppComponent {
 
   // name = 'JuanPablo';
 
-  products;
+  products: Product[];
+
+  // Producto seleccionado para editar.
+  selectedProduct: Product | null = null;
 
   constructor(private productService: ProductService) {
     this.products = this.productService.getProducts();
+  }
+
+  onEditProduct(product: Product): void {
+    this.selectedProduct = product;
   }
 }

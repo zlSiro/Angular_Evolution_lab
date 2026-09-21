@@ -1,9 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-list',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -14,8 +15,38 @@ export class ProductListComponent {
 
   // Angular 19:
   // Signal Input estable.
-  //
-  // El componente recibe la lista desde su componente padre.
   products = input.required<Product[]>();
+
+  // Angular 18:
+  // @Output() edit = new EventEmitter<Product>();
+
+  // Angular 19:
+  // Function-based Output estable.
+  edit = output<Product>();
+
+  // Angular 18:
+  // @Output() delete = new EventEmitter<number>();
+
+  // Angular 19:
+  // Function-based Output estable.
+  delete = output<number>();
+
+  searchTerm = '';
+
+  searchProducts(): Product[] {
+    const term = this.searchTerm.toLowerCase();
+
+    return this.products().filter(product =>
+      product.name.toLowerCase().includes(term)
+    );
+  }
+
+  editProduct(product: Product): void {
+    this.edit.emit(product);
+  }
+
+  deleteProduct(id: number): void {
+    this.delete.emit(id);
+  }
 
 }
