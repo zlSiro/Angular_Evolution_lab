@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-list',
@@ -7,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
+
+  // Angular 18:
+  // @Input() products: Product[] = [];
+
+  // Angular 19:
+  // Signal Input estable.
+  //
+  // El componente recibe la lista desde su componente padre.
+  products = input.required<Product[]>();
 
 }
