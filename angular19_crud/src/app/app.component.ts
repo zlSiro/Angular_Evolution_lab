@@ -30,6 +30,12 @@ export class AppComponent {
   }
 
   onEditProduct(product: Product): void {
+    console.log('Producto seleccionado para editar:', product);
     this.selectedProduct = product;
+  }
+
+  onDeleteProduct(id: number): void {
+    console.log("Producto seleccionado para eliminar: ", id);
+    this.productService.deleteProduct(id);
   }
 }
