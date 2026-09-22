@@ -37,5 +37,7 @@ export class AppComponent {
   onDeleteProduct(id: number): void {
     console.log("Producto seleccionado para eliminar: ", id);
     this.productService.deleteProduct(id);
+
+    this.products = this.productService.getProducts();
   }
 }
