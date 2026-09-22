@@ -56,6 +56,10 @@
       (delete)="onDeleteProduct($event)"
     />
 
+    <app-product-form
+      [productToEdit]="selectedProduct"
+    />
+
     <p class="mt-4 text-lg text-slate-400">
       Angular Evolution Lab
     </p>
