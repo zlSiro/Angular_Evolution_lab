@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, effect } from '@angular/core';
 import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
@@ -17,6 +17,7 @@ export class ProductFormComponent {
   // Signal Input estable desde Angular 19.
   productToEdit = input<Product | null>(null);
 
+
   product: Product = {
     id: 0,
     name: '',
@@ -26,6 +27,15 @@ export class ProductFormComponent {
   };
 
   constructor(private productService: ProductService) {}
+
+  
+  private syncProductEffect = effect(() => {
+    const product = this.productToEdit();
+
+    if (product) {
+      this.product = { ... product };
+    }
+  });
 
   addProduct(): void {
     if (
