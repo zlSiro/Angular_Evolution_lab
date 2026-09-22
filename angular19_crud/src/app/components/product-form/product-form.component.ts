@@ -58,6 +58,26 @@ export class ProductFormComponent {
     this.resetForm();
   }
 
+  updateProduct(): void {
+
+    if (
+      !this.product.name.trim() ||
+      !this.product.description.trim() ||
+      this.product.price <= 0 ||
+      this.product.stock < 0
+    ) {
+      console.log('Producto inválido');
+
+      return;
+    }
+
+    this.productService.updateProduct(this.product);
+
+    console.log('Producto actualizado:', this.product);
+
+    this.resetForm();
+  }
+
   resetForm(): void {
     this.product = {
       id: 0,

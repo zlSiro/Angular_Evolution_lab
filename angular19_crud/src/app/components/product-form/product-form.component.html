@@ -83,13 +83,29 @@
     </div>
 
     <!-- Botón -->
-    <button
-      type="button"
-      (click)="addProduct()"
-      class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
-    >
-      Guardar producto
-    </button>
+    
+    <!-- Agregar Producto -->
+    @if (!productToEdit()) {
+
+      <button
+        type="button"
+        (click)="addProduct()"
+        class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
+      >
+        Guardar producto
+      </button>
+    } 
+    
+    <!-- Actualizar Producto -->
+    @if(productToEdit()) {
+      <button
+        type="button"
+        (click)="updateProduct()"
+        class="rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-700"
+      >
+        Actualizar producto
+      </button>
+    }
 
   </form>
 
