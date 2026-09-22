@@ -1,3 +1,95 @@
-<p class="text-white">
-  Producto recibido: {{ productToEdit()?.name }}
-</p>
+<div class="mt-8 w-full max-w-4xl mx-auto">
+
+  <h2 class="mb-4 text-2xl font-semibold text-white">
+    Producto
+  </h2>
+
+  <form class="rounded-lg border border-slate-700 bg-slate-900 p-6">
+
+    <!-- Nombre -->
+    <div class="mb-4">
+      <label
+        for="name"
+        class="mb-2 block text-sm font-medium text-slate-300"
+      >
+        Nombre
+      </label>
+
+      <input
+        id="name"
+        type="text"
+        [(ngModel)]="product.name"
+        name="name"
+        placeholder="Nombre del producto"
+        class="block w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Descripción -->
+    <div class="mb-4">
+      <label
+        for="description"
+        class="mb-2 block text-sm font-medium text-slate-300"
+      >
+        Descripción
+      </label>
+
+      <textarea
+        id="description"
+        [(ngModel)]="product.description"
+        name="description"
+        rows="3"
+        placeholder="Descripción del producto"
+        class="block w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+      ></textarea>
+    </div>
+
+    <!-- Precio -->
+    <div class="mb-4">
+      <label
+        for="price"
+        class="mb-2 block text-sm font-medium text-slate-300"
+      >
+        Precio
+      </label>
+
+      <input
+        id="price"
+        type="number"
+        [(ngModel)]="product.price"
+        name="price"
+        placeholder="Precio"
+        class="block w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Stock -->
+    <div class="mb-6">
+      <label
+        for="stock"
+        class="mb-2 block text-sm font-medium text-slate-300"
+      >
+        Stock
+      </label>
+
+      <input
+        id="stock"
+        type="number"
+        [(ngModel)]="product.stock"
+        name="stock"
+        placeholder="Stock"
+        class="block w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Botón -->
+    <button
+      type="button"
+      class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
+    >
+      Guardar producto
+    </button>
+
+  </form>
+
+</div>
