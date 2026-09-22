@@ -42,4 +42,8 @@ export class AppComponent {
 
     this.products = this.productService.getProducts();
   }
+
+  onFormFinished(): void {
+    this.selectedProduct = null;
+  }
 }

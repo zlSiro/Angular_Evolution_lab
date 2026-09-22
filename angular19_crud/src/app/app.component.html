@@ -58,6 +58,7 @@
 
     <app-product-form
       [productToEdit]="selectedProduct"
+      (finished)="onFormFinished()"
     />
 
     <p class="mt-4 text-lg text-slate-400">

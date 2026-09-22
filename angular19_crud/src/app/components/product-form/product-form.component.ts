@@ -1,4 +1,4 @@
-import { Component, input, effect } from '@angular/core';
+import { Component, input, effect, output } from '@angular/core';
 import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
@@ -16,6 +16,13 @@ export class ProductFormComponent {
   // Angular 19:
   // Signal Input estable desde Angular 19.
   productToEdit = input<Product | null>(null);
+
+  // Angular 18:
+  // @Output() finished = new EventEmitter<void>();
+
+  // Angular 19:
+  // Function-based Output estable.
+  finished = output<void>();
 
 
   product: Product = {
@@ -76,6 +83,9 @@ export class ProductFormComponent {
     console.log('Producto actualizado:', this.product);
 
     this.resetForm();
+
+    this.finished.emit();
+
   }
 
   resetForm(): void {
@@ -86,5 +96,10 @@ export class ProductFormComponent {
       price: 0,
       stock: 0
     };
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.finished.emit();
   }
 }
