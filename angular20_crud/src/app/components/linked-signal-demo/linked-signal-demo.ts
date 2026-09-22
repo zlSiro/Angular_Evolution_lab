@@ -14,4 +14,8 @@ export class LinkedSignalDemo {
   // Angular 20: estado vinculado a la fuente.
   // Inicialmente toma el primer elemento del estado fuente.
   selected = linkedSignal(() => this.options()[0]);
+
+  changeSelection(): void {
+    this.selected.set('Azul')
+  }
 }

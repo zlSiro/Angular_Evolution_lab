@@ -1,5 +1,12 @@
-<div>
+<div class="mt-10 text-center text-white">
   <p>Opciones: {{ options().join(', ') }}</p>
 
   <p>Seleccionado: {{ selected() }}</p>
+
+  <button
+    class="mt-4 rounded bg-blue-600 px-4 py-2 text-white"
+    (click)="changeSelection()"
+  >
+    Seleccionar Azul
+  </button>
 </div>
