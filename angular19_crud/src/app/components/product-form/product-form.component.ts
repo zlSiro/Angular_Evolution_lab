@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -24,5 +25,15 @@ export class ProductFormComponent {
     price: 0,
     stock: 0
   };
+
+  constructor(private productService: ProductService) { }
+
+  addProduct(): void {
+    this.product.id = Date.now(); // Generar un ID único basado en la fecha actual
+
+    this.productService.addProduct(this.product);
+
+    console.log('Producto agregado: ', this.product);
+  }
 
 }
