@@ -7,10 +7,9 @@ import { ProductService } from '../../services/product.service';
   selector: 'app-product-form',
   imports: [FormsModule],
   templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.css'
+  styleUrl: './product-form.component.css',
 })
 export class ProductFormComponent {
-
   // Angular 18:
   // @Input() productToEdit: Product | null = null;
 
@@ -23,17 +22,39 @@ export class ProductFormComponent {
     name: '',
     description: '',
     price: 0,
-    stock: 0
+    stock: 0,
   };
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   addProduct(): void {
+    if (
+      !this.product.name.trim() ||
+      !this.product.description.trim() ||
+      this.product.price <= 0 ||
+      this.product.stock < 0
+    ) {
+      console.log('Producto inválido');
+
+      return;
+    }
+
     this.product.id = Date.now(); // Generar un ID único basado en la fecha actual
 
     this.productService.addProduct(this.product);
 
     console.log('Producto agregado: ', this.product);
+
+    this.resetForm();
   }
 
+  resetForm(): void {
+    this.product = {
+      id: 0,
+      name: '',
+      description: '',
+      price: 0,
+      stock: 0
+    };
+  }
 }
